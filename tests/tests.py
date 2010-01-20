@@ -4,7 +4,7 @@ from usps.addressinformation import *
 
 USERID = None
 
-class TestSequenceFunctions(unittest.TestCase):
+class TestAddressInformationAPI(unittest.TestCase):
     def test_address_validate(self):
         connector = AddressValidate(USPS_CONNECTION_TEST)
         response = connector.execute(USERID, [{'Address2':'6406 Ivy Lane',
@@ -60,6 +60,7 @@ class TestSequenceFunctions(unittest.TestCase):
         self.assertEqual(response['Zip5'], '20770')
 
 if __name__ == '__main__':
+    #please append your USPS USERID to test against the wire
     import sys
     USERID = sys.argv.pop()
     unittest.main()
